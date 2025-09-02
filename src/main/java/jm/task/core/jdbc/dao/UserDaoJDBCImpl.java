@@ -9,9 +9,6 @@ import java.util.List;
 
 public class UserDaoJDBCImpl implements UserDao {
 
-    public UserDaoJDBCImpl() {
-    }
-
     @Override
     public void createUsersTable() {
         String query = "CREATE TABLE IF NOT EXISTS users (" +
@@ -31,8 +28,8 @@ public class UserDaoJDBCImpl implements UserDao {
 
     @Override
     public void dropUsersTable() {
-        try(Connection connection = Util.getConnection();
-        Statement st = connection.createStatement()) {
+        try (Connection connection = Util.getConnection();
+             Statement st = connection.createStatement()) {
             st.executeUpdate("DROP TABLE IF EXISTS users;");
         } catch (SQLException e) {
             e.printStackTrace();
@@ -60,7 +57,7 @@ public class UserDaoJDBCImpl implements UserDao {
         String query = "DELETE FROM users WHERE id = ?";
 
         try (Connection connection = Util.getConnection();
-            PreparedStatement ps = connection.prepareStatement(query)) {
+             PreparedStatement ps = connection.prepareStatement(query)) {
             ps.setLong(1, id);
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -74,7 +71,7 @@ public class UserDaoJDBCImpl implements UserDao {
         String query = "SELECT * FROM users";
 
         try (Connection connection = Util.getConnection();
-        Statement st = connection.createStatement()) {
+             Statement st = connection.createStatement()) {
             st.executeQuery(query);
             ResultSet resultSet = st.getResultSet();
             while (resultSet.next()) {
@@ -96,7 +93,7 @@ public class UserDaoJDBCImpl implements UserDao {
 
         try (Connection connection = Util.getConnection();
              Statement statement = connection.createStatement();
-        ){
+        ) {
             statement.executeUpdate(query);
         } catch (SQLException e) {
             e.printStackTrace();

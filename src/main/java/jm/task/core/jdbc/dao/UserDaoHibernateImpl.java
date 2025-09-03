@@ -68,9 +68,7 @@ public class UserDaoHibernateImpl implements UserDao {
 
             tx.commit();
         } catch (HibernateException e) {
-            if (tx != null) {
-                tx.rollback();
-            }
+            if (tx != null && tx.isActive()) { tx.rollback(); }
             e.printStackTrace();
         }
     }
@@ -86,7 +84,7 @@ public class UserDaoHibernateImpl implements UserDao {
             }
             tx.commit();
         } catch (HibernateException e) {
-            if (tx != null) {
+            if (tx != null && tx.isActive()) {
                 tx.rollback();
             }
             e.printStackTrace();

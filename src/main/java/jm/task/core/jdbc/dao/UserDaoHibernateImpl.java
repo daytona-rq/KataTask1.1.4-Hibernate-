@@ -15,7 +15,7 @@ import java.util.List;
 
 public class UserDaoHibernateImpl implements UserDao {
 
-    SessionFactory sessionFactory;
+    private SessionFactory sessionFactory;
 
     public UserDaoHibernateImpl() {
         try {

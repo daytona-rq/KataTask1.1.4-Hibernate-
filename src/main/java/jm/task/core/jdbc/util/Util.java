@@ -12,14 +12,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Util {
-    private static SessionFactory sessionFactory = null;
-
-    private Util() {
-    }
 
     static private final String URL = "jdbc:mysql://localhost:3306/KataTask";
     static private final String USER = "root";
     static private final String PASSWORD = "";
+    private static SessionFactory sessionFactory = null;
+
+    private Util() {
+    }
 
     public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(URL, USER, PASSWORD);

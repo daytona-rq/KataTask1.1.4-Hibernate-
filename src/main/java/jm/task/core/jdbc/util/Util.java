@@ -13,9 +13,9 @@ import java.util.Map;
 
 public class Util {
 
-    static private final String URL = "jdbc:mysql://localhost:3306/KataTask";
-    static private final String USER = "root";
-    static private final String PASSWORD = "";
+    private static final String URL = "jdbc:mysql://localhost:3306/KataTask";
+    private static final String USER = "root";
+    private static final String PASSWORD = "";
     private static SessionFactory sessionFactory = null;
 
     private Util() {
